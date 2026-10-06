@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../providers/ride_provider.dart';
 import '../models/models.dart';
+import '../providers/auth_provider.dart';
 import 'manage_groups_screen.dart';
 import 'ride_details_screen.dart';
 import 'package:geolocator/geolocator.dart';
@@ -24,6 +25,12 @@ class HomeScreen extends StatelessWidget {
                   builder: (context) => const ManageGroupsScreen(),
                 ),
               );
+            },
+          ),
+          IconButton(
+            icon: const Icon(Icons.logout),
+            onPressed: () {
+              Provider.of<AuthProvider>(context, listen: false).logout();
             },
           ),
         ],
